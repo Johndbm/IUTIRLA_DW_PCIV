@@ -24,66 +24,7 @@
             }
         }
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.5s ease-in-out;
-        }
-
-        .hero-section {
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            color: white;
-            padding: 2rem;
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #1a202c;
-            transform: scale(1);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Themed backgrounds for sections */
-        #iutirla-section { background-color: #003366; color: white; }
-        #halloween-section { background-color: #1a202c; color: #ff6600; }
-        #navidad-section { background-color: #B22222; color: white; }
-        
-        .section-content {
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .back-button {
-            transition: transform 0.2s ease-in-out;
-        }
-        .back-button:hover {
-            transform: scale(1.1);
-        }
-
-        /* Keyframes for simple animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .animate-fadeIn {
-            animation: fadeIn 1s ease-in-out;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-100 font-inter">
 
@@ -95,13 +36,13 @@
                 Desarrollar una página web que fusione: IUTIRLA y su historia - Halloween y Navidad.
             </p>
             <div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
-                <a href="#iutirla" class="card flex-1 min-w-0 p-6 rounded-lg shadow-md text-center bg-iutirla text-white hover:bg-opacity-80 transition-colors duration-300">
+                    <a href="#iutirla" class="card flex-1 min-w-0 p-6 rounded-lg shadow-md text-center bg-iutirla text-white hover:bg-opacity-80 transition-colors duration-300" role="button" aria-controls="iutirla-section" aria-label="Ver IUTIRLA">
                     <h2 class="text-2xl font-bold">IUTIRLA</h2>
                 </a>
-                <a href="#halloween" class="card flex-1 min-w-0 p-6 rounded-lg shadow-md text-center bg-halloween text-gray-800 hover:bg-opacity-80 transition-colors duration-300">
+                    <a href="#halloween" class="card flex-1 min-w-0 p-6 rounded-lg shadow-md text-center bg-halloween text-gray-800 hover:bg-opacity-80 transition-colors duration-300" role="button" aria-controls="halloween-section" aria-label="Ver Halloween">
                     <h2 class="text-2xl font-bold">Halloween</h2>
                 </a>
-                <a href="#navidad" class="card flex-1 min-w-0 p-6 rounded-lg shadow-md text-center bg-navidad text-white hover:bg-opacity-80 transition-colors duration-300">
+                    <a href="#navidad" class="card flex-1 min-w-0 p-6 rounded-lg shadow-md text-center bg-navidad text-white hover:bg-opacity-80 transition-colors duration-300" role="button" aria-controls="navidad-section" aria-label="Ver Navidad">
                     <h2 class="text-2xl font-bold">Navidad</h2>
                 </a>
             </div>
@@ -111,7 +52,7 @@
     <!-- IUTIRLA section -->
     <section id="iutirla-section" class="hidden min-h-screen flex items-center py-16 px-4 animate-fadeIn">
         <div class="section-content">
-            <a href="#" class="back-button text-white text-lg font-bold flex items-center mb-8" onclick="showMainPage()">
+            <a href="#" class="back-button text-white text-lg font-bold flex items-center mb-8 js-back" data-target="main-page">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
@@ -124,7 +65,7 @@
             <p class="text-lg mb-6 leading-relaxed">
                 Para conocer más sobre su evolución y su misión, te invitamos a visitar la página oficial de la institución.
             </p>
-            <a href="https://iutirlaoficial.com/somosiutirla/" target="_blank" class="text-lg underline hover:text-gray-300 transition-colors duration-300">
+            <a href="https://iutirlaoficial.com/somosiutirla/" target="_blank" rel="noopener noreferrer" class="text-lg underline hover:text-gray-300 transition-colors duration-300">
                 Ver Misión y Visión en el sitio oficial del IUTIRLA
             </a>
         </div>
@@ -133,7 +74,7 @@
     <!-- Halloween section -->
     <section id="halloween-section" class="hidden min-h-screen flex items-center py-16 px-4 animate-fadeIn">
         <div class="section-content">
-            <a href="#" class="back-button text-halloween text-lg font-bold flex items-center mb-8" onclick="showMainPage()">
+            <a href="#" class="back-button text-halloween text-lg font-bold flex items-center mb-8 js-back" data-target="main-page">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
@@ -146,7 +87,7 @@
             <p class="text-lg mb-6 leading-relaxed">
                 Con el paso del tiempo, estas tradiciones se fusionaron con otras festividades, adoptando el nombre de Halloween, una contracción de "All Hallows’ Eve" (Víspera de Todos los Santos). Para más información, puedes visitar la siguiente fuente.
             </p>
-            <a href="https://www.jw.org/es/ense%C3%B1anzas-b%C3%ADblicas/preguntas/origen-halloween/" target="_blank" class="text-lg underline hover:text-gray-300 transition-colors duration-300">
+            <a href="https://www.jw.org/es/ense%C3%B1anzas-b%C3%ADblicas/preguntas/origen-halloween/" target="_blank" rel="noopener noreferrer" class="text-lg underline hover:text-gray-300 transition-colors duration-300">
                 Leer más sobre el origen de Halloween
             </a>
         </div>
@@ -155,7 +96,7 @@
     <!-- Navidad section -->
     <section id="navidad-section" class="hidden min-h-screen flex items-center py-16 px-4 animate-fadeIn">
         <div class="section-content">
-            <a href="#" class="back-button text-white text-lg font-bold flex items-center mb-8" onclick="showMainPage()">
+            <a href="#" class="back-button text-white text-lg font-bold flex items-center mb-8 js-back" data-target="main-page">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
@@ -171,9 +112,11 @@
             <p class="text-lg mb-6 leading-relaxed">
                 Para profundizar en la historia de la Navidad, te sugiero visitar la siguiente fuente.
             </p>
-            <a href="https://es.wikipedia.org/wiki/Navidad" target="_blank" class="text-lg underline hover:text-gray-300 transition-colors duration-300">
+        <a href="https://es.wikipedia.org/wiki/Navidad" target="_blank" rel="noopener noreferrer" class="text-lg underline hover:text-gray-300 transition-colors duration-300">
                 Explorar el origen de la Navidad en Wikipedia
             </a>
+
+    <script src="scripts/main.js"></script>
         </div>
     </section>
 
